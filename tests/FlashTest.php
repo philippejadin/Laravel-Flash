@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace DraperStudio\Package\Test;
+namespace DraperStudio\Flash\Test;
 
 /**
  * Class FlashTest.
@@ -26,7 +26,7 @@ class FlashTest extends \Orchestra\Testbench\TestCase
     {
         parent::setUp();
 
-        $this->session = \Mockery::mock('Laracasts\Flash\SessionStore');
+        $this->session = \Mockery::mock('DraperStudio\Flash\SessionStore');
     }
 
     /** @test */
