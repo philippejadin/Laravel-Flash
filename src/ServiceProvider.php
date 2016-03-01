@@ -23,9 +23,6 @@ class ServiceProvider extends BaseProvider
      */
     protected $packageName = 'flash';
 
-    /**
-     *
-     */
     public function boot()
     {
         $this->setup(__DIR__)
@@ -35,9 +32,6 @@ class ServiceProvider extends BaseProvider
              ->mergeConfig('flash');
     }
 
-    /**
-     *
-     */
     public function register()
     {
         $this->app->singleton('flash', function () {
