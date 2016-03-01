@@ -1,34 +1,23 @@
 # Laravel Flash
 
-## Intro
+[![Latest Version on Packagist][ico-version]][link-packagist]
+[![Software License][ico-license]](LICENSE.md)
+[![Build Status][ico-travis]][link-travis]
+[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
+[![Quality Score][ico-code-quality]][link-code-quality]
+[![Total Downloads][ico-downloads]][link-downloads]
 
-This package is a fork of the [Flash Package](https://github.com/laracasts/flash) built by [Jeffrey Way](https://github.com/JeffreyWay) at [Laracasts](https://laracasts.com/lessons/flexible-flash-messages).
+## Install
 
-## New Features
+Via Composer
 
-- Display Laravel Validator Messages
-- Display Multiple Messages
-- Display Titles in Alerts
-- Configuration to choose a template
-    - Twitter Bootstrap 3 (Default)
-    - ZURB Foundation
-        - Default
-        - Radius
-        - Round
-- Method Chaining
-- Cleaned with [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
-
-## Installation
-
-First, pull in the package through Composer.
-
-```js
-composer require draperstudio/laravel-flash:1.0.*@dev
+``` bash
+$ composer require draperstudio/laravel-flash
 ```
 
 And then include the service provider within `app/config/app.php`.
 
-```php
+``` php
 'providers' => [
     DraperStudio\Flash\ServiceProvider::class
 ];
@@ -46,7 +35,7 @@ The package views will now be located in the `app/resources/views/vendor/flash/`
 
 Within your controllers, before you perform a redirect...
 
-```php
+``` php
 public function store(Flash $flash)
 {
     flash()->message('Welcome Aboard!');
@@ -117,14 +106,14 @@ Because flash messages and overlays are so common, if you want, you may use (or 
 ```
 
 #### Message (Defaults to Info)
-```php
+``` php
 flash()->message('Welcome aboard!');
 
 return redirect()->route('dashboard');
 ```
 
 #### Success
-```php
+``` php
 flash()->success('You successfully read this important alert message.');
 
 return redirect()->route('dashboard');
@@ -132,14 +121,14 @@ return redirect()->route('dashboard');
 
 #### Info
 
-```php
+``` php
 flash()->info('This alert needs your attention, but it\'s not super important.');
 
 return redirect()->route('dashboard');
 ```
 
 #### Warning
-```php
+``` php
 flash()->warning('Better check yourself, you\'re not looking too good.');
 
 return redirect()->route('dashboard');
@@ -147,7 +136,7 @@ return redirect()->route('dashboard');
 
 #### Error
 
-```php
+``` php
 flash()->error('Change a few things up and try submitting again.');
 
 return redirect()->route('dashboard');
@@ -155,21 +144,21 @@ return redirect()->route('dashboard');
 
 #### Important
 
-```php
+``` php
 flash('You successfully read this important alert message.')->important();
 
 return redirect()->route('dashboard');
 ```
 
 #### Modal / Overlay
-```php
+``` php
 flash()->overlay('One fine body...');
 
 return redirect()->route('dashboard');
 ```
 
 #### Laravel Validation
-```php
+``` php
 $validator = Validator::make(
     ['name' => 'Invalid'],
     ['name' => 'required|min:8']
@@ -182,7 +171,7 @@ return redirect()->route('dashboard');
 
 #### Chain Messages
 
-```php
+``` php
 flash()->success('You successfully read this important alert message.')
        ->info('This alert needs your attention, but it\'s not super important.')
        ->warning('Better check yourself, you\'re not looking too good.')
@@ -191,3 +180,45 @@ flash()->success('You successfully read this important alert message.')
 
 return redirect()->route('dashboard');
 ```
+
+## Change log
+
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
+## Testing
+
+``` bash
+$ composer test
+```
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
+
+## Security
+
+If you discover any security related issues, please email hello@draperstudio.tech instead of using the issue tracker.
+
+## Credits
+
+- [DraperStudio][link-author]
+- [All Contributors][link-contributors]
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+[ico-version]: https://img.shields.io/packagist/v/DraperStudio/laravel-flash.svg?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/DraperStudio/Laravel-Flash/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/DraperStudio/laravel-flash.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/DraperStudio/laravel-flash.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/DraperStudio/laravel-flash.svg?style=flat-square
+
+[link-packagist]: https://packagist.org/packages/DraperStudio/laravel-flash
+[link-travis]: https://travis-ci.org/DraperStudio/Laravel-Flash
+[link-scrutinizer]: https://scrutinizer-ci.com/g/DraperStudio/laravel-flash/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/DraperStudio/laravel-flash
+[link-downloads]: https://packagist.org/packages/DraperStudio/laravel-flash
+[link-author]: https://github.com/DraperStudio
+[link-contributors]: ../../contributors
