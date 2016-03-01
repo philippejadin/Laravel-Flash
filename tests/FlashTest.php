@@ -26,7 +26,7 @@ class FlashTest extends \Orchestra\Testbench\TestCase
     {
         parent::setUp();
 
-        $this->session = \Mockery::mock('DraperStudio\Flash\SessionStore');
+        $this->session = \Mockery::mock('Illuminate\Session\Store');
     }
 
     /** @test */
