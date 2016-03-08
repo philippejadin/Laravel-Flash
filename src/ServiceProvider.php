@@ -11,39 +11,56 @@
 
 namespace DraperStudio\Flash;
 
-use DraperStudio\ServiceProvider\ServiceProvider as BaseProvider;
-
 /**
  * Class ServiceProvider.
+ *
+ * @author DraperStudio <hello@draperstudio.tech>
  */
-class ServiceProvider extends BaseProvider
+class ServiceProvider extends \DraperStudio\ServiceProvider\ServiceProvider
 {
     /**
-     * @var string
+     * Bootstrap the application services.
      */
-    protected $packageName = 'flash';
-
     public function boot()
     {
-        $this->setup(__DIR__)
-             ->publishConfig()
-             ->publishViews()
-             ->loadViews()
-             ->mergeConfig('flash');
+        $this->publishConfig();
+
+        $this->publishViews();
+
+        $this->loadViews();
+
+        $this->mergeConfig();
     }
 
+    /**
+     * Register the application services.
+     */
     public function register()
     {
+        parent::register();
+        
         $this->app->singleton('flash', function () {
             return $this->app->make(FlashNotifier::class);
         });
     }
 
     /**
+     * Get the services provided by the provider.
+     *
      * @return array
      */
     public function provides()
     {
-        return ['flash'];
+        return array_merge(parent::provides(), ['flash']);
+    }
+
+    /**
+     * Get the default package name.
+     *
+     * @return string
+     */
+    public function getPackageName()
+    {
+        return 'flash';
     }
 }

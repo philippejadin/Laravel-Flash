@@ -9,22 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace DraperStudio\Flash\Facades;
+namespace DraperStudio\Tests\Flash;
 
-use Illuminate\Support\Facades\Facade;
+use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
 
 /**
- * Class Flash.
+ * This is the service provider test class.
  *
  * @author DraperStudio <hello@draperstudio.tech>
  */
-class Flash extends Facade
+class ServiceProviderTest extends AbstractTestCase
 {
-    /**
-     * @return string
-     */
-    protected static function getFacadeAccessor()
-    {
-        return 'flash';
-    }
+    use ServiceProviderTrait;
 }

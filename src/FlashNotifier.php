@@ -16,6 +16,8 @@ use Illuminate\Support\MessageBag;
 
 /**
  * Class FlashNotifier.
+ *
+ * @author DraperStudio <hello@draperstudio.tech>
  */
 class FlashNotifier
 {
