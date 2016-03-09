@@ -38,7 +38,7 @@ class ServiceProvider extends \DraperStudio\ServiceProvider\ServiceProvider
     public function register()
     {
         parent::register();
-        
+
         $this->app->singleton('flash', function () {
             return $this->app->make(FlashNotifier::class);
         });
