@@ -25,6 +25,11 @@ class FlashNotifier
      * @var Store
      */
     private $session;
+{
+    /**
+     * @var array
+     */
+    private $messages;
 
     /**
      * FlashNotifier constructor.
@@ -115,10 +120,16 @@ class FlashNotifier
             $message = new MessageBag($message);
         }
 
-        $this->session->flash('flash_notification.messages', [
-            compact('message', 'level', 'title', 'overlay'),
-        ]);
+        $this->messages[] = compact('message', 'level', 'title', 'overlay');
 
         return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function commit()
+    {
+        return $this->session->flash('flash_notification.messages', $this->messages);
     }
 }
