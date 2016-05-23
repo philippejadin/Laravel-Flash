@@ -120,7 +120,9 @@ class FlashNotifier
             $message = new MessageBag($message);
         }
 
-        $this->messages[] = compact('message', 'level', 'title', 'overlay');
+        $values = $this->session->get('flash_notification.messages', []);
+        $values[] = compact('message', 'level', 'title', 'overlay');
+        $this->session->flash('flash_notification.messages', $values);
 
         return $this;
     }
