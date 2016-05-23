@@ -127,11 +127,4 @@ class FlashNotifier
         return $this;
     }
 
-    /**
-     * @return bool
-     */
-    public function commit()
-    {
-        return $this->session->flash('flash_notification.messages', $this->messages);
-    }
 }
